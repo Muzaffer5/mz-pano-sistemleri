@@ -19,6 +19,8 @@
     }
     header img {
       max-width: 200px;
+      width: 100%;
+      height: auto;
     }
     nav {
       display: flex;
@@ -31,21 +33,21 @@
       color: #fff;
       text-decoration: none;
       transition: background 0.3s;
+      font-size: 1rem;
     }
     nav a:hover {
       background-color: #f3c613;
       color: #000;
     }
     section {
-      padding: 60px 20px;
+      padding: 40px 20px;
       max-width: 900px;
       margin: 0 auto;
     }
 
-    /* Slider stilleri */
     .slider {
       position: relative;
-      max-width: 900px;
+      max-width: 100%;
       margin: 0 auto 40px;
       overflow: hidden;
       border-radius: 8px;
@@ -67,6 +69,7 @@
     }
     .slide img, .slide video {
       width: 100%;
+      height: auto;
       border-radius: 8px;
     }
     .prev, .next {
@@ -76,9 +79,9 @@
       background-color: rgba(243, 198, 19, 0.8);
       color: #000;
       border: none;
-      padding: 12px 18px;
+      padding: 10px 14px;
       cursor: pointer;
-      font-size: 24px;
+      font-size: 20px;
       border-radius: 50%;
       user-select: none;
       z-index: 10;
@@ -98,26 +101,26 @@
       text-align: center;
       padding: 20px;
       color: #aaa;
+      font-size: 0.9rem;
     }
 
-    /* Sadece bilgisayarlar için */
-    /* Ekran genişliği 1024px'den küçük ise tüm siteyi gizle, uyarıyı göster */
-    @media screen and (max-width: 1023px) {
-      body > * {
-        display: none !important; /* tüm içeriği gizle */
+    @media screen and (max-width: 600px) {
+      nav a {
+        font-size: 0.9rem;
+        padding: 10px;
       }
-      body::before {
-        content: "Lütfen bu siteyi bilgisayarınızda ziyaret edin.";
-        display: block;
-        color: #f3c613;
-        font-size: 1.5rem;
-        text-align: center;
-        margin: 20% auto;
-        padding: 20px;
-        background-color: #222;
-        max-width: 400px;
-        border-radius: 10px;
-        font-weight: bold;
+
+      section {
+        padding: 30px 15px;
+      }
+
+      header img {
+        max-width: 150px;
+      }
+
+      .prev, .next {
+        font-size: 18px;
+        padding: 8px 12px;
       }
     }
   </style>
@@ -144,16 +147,12 @@
   <h2>Hakkımızda</h2>
   <p>Firmamız, elektrik elektronik ve pano sistemleri alanında uzmanlaşmıştır. Kaliteli hizmet ve müşteri memnuniyeti önceliğimizdir.
     Elektrik panolarınızda meydana gelen arızalar, üretim süreçlerinizi sekteye uğratmasın!
-Profesyonel pano bakım ve onarım hizmetlerimizle, sisteminizin sorunsuz ve güvenli çalışmasını sağlıyoruz.
-
-✅ Arıza tespiti ve hızlı müdahale
-
-✅ Düzenli bakım ve temizlik hizmeti
-
-✅ Komponent yenileme ve optimizasyon
-
-İster sanayi ister ticari işletme olun, ihtiyacınıza özel çözümlerle yanınızdayız.
-Siz işinize odaklanın, biz elektriğinizi güvene alalım.
+    Profesyonel pano bakım ve onarım hizmetlerimizle, sisteminizin sorunsuz ve güvenli çalışmasını sağlıyoruz.<br><br>
+    ✅ Arıza tespiti ve hızlı müdahale<br>
+    ✅ Düzenli bakım ve temizlik hizmeti<br>
+    ✅ Komponent yenileme ve optimizasyon<br><br>
+    İster sanayi ister ticari işletme olun, ihtiyacınıza özel çözümlerle yanınızdayız.
+    Siz işinize odaklanın, biz elektriğinizi güvene alalım.
   </p>
 </section>
 
@@ -161,32 +160,15 @@ Siz işinize odaklanın, biz elektriğinizi güvene alalım.
   <h2>Projelerimiz</h2>
   <div class="slider">
     <div class="slides">
-      <div class="slide active">
-        <img src="proje1.jpeg" alt="Proje 1">
-      </div>
-      <div class="slide">
-        <video src="proje2.mp4" controls muted></video>
-      </div>
-      <div class="slide">
-        <video src="proje3.mp4" controls muted></video>
-      </div>
-      <div class="slide">
-        <img src="proje4.jpeg" alt="Proje 4">
-      </div>
-      <div class="slide">
-        <img src="proje5.jpeg" alt="Proje 5">
-      </div>
-      <div class="slide">
-        <img src="proje6.jpeg" alt="Proje 6">
-      </div>
-      <div class="slide">
-        <img src="proje7.jpeg" alt="Proje 7">
-      </div>
-      <div class="slide">
-        <img src="proje8.jpeg" alt="Proje 8">
-      </div>
+      <div class="slide active"><img src="proje1.jpeg" alt="Proje 1"></div>
+      <div class="slide"><video src="proje2.mp4" controls muted></video></div>
+      <div class="slide"><video src="proje3.mp4" controls muted></video></div>
+      <div class="slide"><img src="proje4.jpeg" alt="Proje 4"></div>
+      <div class="slide"><img src="proje5.jpeg" alt="Proje 5"></div>
+      <div class="slide"><img src="proje6.jpeg" alt="Proje 6"></div>
+      <div class="slide"><img src="proje7.jpeg" alt="Proje 7"></div>
+      <div class="slide"><img src="proje8.jpeg" alt="Proje 8"></div>
     </div>
-
     <button class="prev" aria-label="Önceki">&#10094;</button>
     <button class="next" aria-label="Sonraki">&#10095;</button>
   </div>
@@ -213,9 +195,9 @@ Siz işinize odaklanın, biz elektriğinizi güvene alalım.
   function showSlide(index) {
     slides.forEach((slide, i) => {
       slide.classList.toggle('active', i === index);
-      if (slide.querySelector('video')) {
-        if (i === index) slide.querySelector('video').play();
-        else slide.querySelector('video').pause();
+      const video = slide.querySelector('video');
+      if (video) {
+        i === index ? video.play() : video.pause();
       }
     });
   }
