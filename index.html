@@ -5,10 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MZ Pano Sistemleri</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
+      font-family: 'Poppins', sans-serif;
       background-color: #000;
       color: #fff;
     }
@@ -44,7 +45,6 @@
       max-width: 900px;
       margin: 0 auto;
     }
-
     .slider {
       position: relative;
       max-width: 100%;
@@ -95,7 +95,6 @@
     .next {
       right: 10px;
     }
-
     footer {
       background-color: #111;
       text-align: center;
@@ -103,21 +102,44 @@
       color: #aaa;
       font-size: 0.9rem;
     }
+    footer a {
+      color: #f3c613;
+      font-size: 1.6rem;
+      margin: 0 5px;
+      text-decoration: none;
+    }
+    /* WhatsApp butonu */
+    .whatsapp-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25D366;
+      color: white;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      z-index: 999;
+    }
+    .whatsapp-button i {
+      font-size: 28px;
+    }
 
     @media screen and (max-width: 600px) {
       nav a {
         font-size: 0.9rem;
         padding: 10px;
       }
-
       section {
         padding: 30px 15px;
       }
-
       header img {
         max-width: 150px;
       }
-
       .prev, .next {
         font-size: 18px;
         padding: 8px 12px;
@@ -145,15 +167,12 @@
 
 <section id="hakkimizda">
   <h2>Hakkımızda</h2>
-  <p>Firmamız, elektrik elektronik ve pano sistemleri alanında uzmanlaşmıştır. Kaliteli hizmet ve müşteri memnuniyeti önceliğimizdir.
-    Elektrik panolarınızda meydana gelen arızalar, üretim süreçlerinizi sekteye uğratmasın!
-    Profesyonel pano bakım ve onarım hizmetlerimizle, sisteminizin sorunsuz ve güvenli çalışmasını sağlıyoruz.<br><br>
-    ✅ Arıza tespiti ve hızlı müdahale<br>
-    ✅ Düzenli bakım ve temizlik hizmeti<br>
-    ✅ Komponent yenileme ve optimizasyon<br><br>
-    İster sanayi ister ticari işletme olun, ihtiyacınıza özel çözümlerle yanınızdayız.
-    Siz işinize odaklanın, biz elektriğinizi güvene alalım.
-  </p>
+  <p>Firmamız, elektrik elektronik ve pano sistemleri alanında uzmanlaşmıştır. Kaliteli hizmet ve müşteri memnuniyeti önceliğimizdir.<br>
+  ✅ Arıza tespiti ve hızlı müdahale<br>
+  ✅ Düzenli bakım ve temizlik hizmeti<br>
+  ✅ Komponent yenileme ve optimizasyon<br><br>
+  İster sanayi ister ticari işletme olun, ihtiyacınıza özel çözümlerle yanınızdayız.
+  Siz işinize odaklanın, biz elektriğinizi güvene alalım.</p>
 </section>
 
 <section id="projeler" class="projects">
@@ -184,7 +203,24 @@
 
 <footer>
   <p>&copy; 2025 MZ Pano Sistemleri. Tüm hakları saklıdır.</p>
+
+  <!-- Instagram ikonu -->
+  <a href="https://instagram.com/robo_cad" target="_blank" aria-label="Instagram">
+    <i class="fab fa-instagram"></i>
+  </a>
+
+  <!-- Ziyaretçi Sayacı -->
+  <div style="margin-top: 10px;">
+    <img src="https://hitwebcounter.com/counter/counter.php?page=20966342&style=0006&nbdigits=5&type=page&initCount=0" 
+         title="Ziyaretçi Sayacı" alt="Ziyaretçi Sayacı" style="width:100px;"
+           border="0" />
+  </div>
 </footer>
+
+<!-- WhatsApp butonu -->
+<a href="https://wa.me/905380842961" class="whatsapp-button" target="_blank" aria-label="WhatsApp ile iletişim">
+  <i class="fab fa-whatsapp"></i>
+</a>
 
 <script>
   const slides = document.querySelectorAll('.slide');
@@ -193,23 +229,25 @@
   let current = 0;
 
   function showSlide(index) {
-    slides.forEach((slide, i) => {
-      slide.classList.toggle('active', i === index);
-      const video = slide.querySelector('video');
-      if (video) {
-        i === index ? video.play() : video.pause();
-      }
-    });
+    slides[current].classList.remove('active');
+    const currentVideo = slides[current].querySelector('video');
+    if (currentVideo) currentVideo.pause();
+
+    slides[index].classList.add('active');
+    const nextVideo = slides[index].querySelector('video');
+    if (nextVideo) nextVideo.play();
+
+    current = index;
   }
 
   function nextSlide() {
-    current = (current + 1) % slides.length;
-    showSlide(current);
+    const nextIndex = (current + 1) % slides.length;
+    showSlide(nextIndex);
   }
 
   function prevSlide() {
-    current = (current - 1 + slides.length) % slides.length;
-    showSlide(current);
+    const prevIndex = (current - 1 + slides.length) % slides.length;
+    showSlide(prevIndex);
   }
 
   nextBtn.addEventListener('click', () => {
@@ -223,9 +261,7 @@
   });
 
   showSlide(current);
-
   let slideInterval = setInterval(nextSlide, 6000);
-
   function resetAutoSlide() {
     clearInterval(slideInterval);
     slideInterval = setInterval(nextSlide, 6000);
