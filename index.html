@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MZ Pano Sistemleri</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #000;
+      color: #fff;
+    }
+    header {
+      background-color: #111;
+      padding: 20px;
+      text-align: center;
+    }
+    header img {
+      max-width: 200px;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #222;
+      flex-wrap: wrap;
+    }
+    nav a {
+      padding: 15px 20px;
+      color: #fff;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+    nav a:hover {
+      background-color: #f3c613;
+      color: #000;
+    }
+    section {
+      padding: 60px 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    /* Slider stilleri */
+    .slider {
+      position: relative;
+      max-width: 900px;
+      margin: 0 auto 40px;
+      overflow: hidden;
+      border-radius: 8px;
+    }
+    .slides {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+      width: 100%;
+    }
+    .slide {
+      min-width: 100%;
+      box-sizing: border-box;
+      display: none;
+      justify-content: center;
+      align-items: center;
+    }
+    .slide.active {
+      display: flex;
+    }
+    .slide img, .slide video {
+      width: 100%;
+      border-radius: 8px;
+    }
+    .prev, .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(243, 198, 19, 0.8);
+      color: #000;
+      border: none;
+      padding: 12px 18px;
+      cursor: pointer;
+      font-size: 24px;
+      border-radius: 50%;
+      user-select: none;
+      z-index: 10;
+    }
+    .prev:hover, .next:hover {
+      background-color: #f3c613;
+    }
+    .prev {
+      left: 10px;
+    }
+    .next {
+      right: 10px;
+    }
+
+    footer {
+      background-color: #111;
+      text-align: center;
+      padding: 20px;
+      color: #aaa;
+    }
+
+    /* Sadece bilgisayarlar için */
+    /* Ekran genişliği 1024px'den küçük ise tüm siteyi gizle, uyarıyı göster */
+    @media screen and (max-width: 1023px) {
+      body > * {
+        display: none !important; /* tüm içeriği gizle */
+      }
+      body::before {
+        content: "Lütfen bu siteyi bilgisayarınızda ziyaret edin.";
+        display: block;
+        color: #f3c613;
+        font-size: 1.5rem;
+        text-align: center;
+        margin: 20% auto;
+        padding: 20px;
+        background-color: #222;
+        max-width: 400px;
+        border-radius: 10px;
+        font-weight: bold;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="logo.jpeg" alt="MZ Pano Sistemleri Logosu">
+</header>
+
+<nav>
+  <a href="#anasayfa">Ana Sayfa</a>
+  <a href="#hakkimizda">Hakkımızda</a>
+  <a href="#projeler">Projeler</a>
+  <a href="#iletisim">İletişim</a>
+</nav>
+
+<section id="anasayfa">
+  <h1>Hoş Geldiniz</h1>
+  <p>MZ Pano Sistemleri, yenilikçi elektrik panosu çözümleri ve pano arıza giderim hizmeti sunar.</p>
+</section>
+
+<section id="hakkimizda">
+  <h2>Hakkımızda</h2>
+  <p>Firmamız, elektrik elektronik ve pano sistemleri alanında uzmanlaşmıştır. Kaliteli hizmet ve müşteri memnuniyeti önceliğimizdir.
+    Elektrik panolarınızda meydana gelen arızalar, üretim süreçlerinizi sekteye uğratmasın!
+Profesyonel pano bakım ve onarım hizmetlerimizle, sisteminizin sorunsuz ve güvenli çalışmasını sağlıyoruz.
+
+✅ Arıza tespiti ve hızlı müdahale
+
+✅ Düzenli bakım ve temizlik hizmeti
+
+✅ Komponent yenileme ve optimizasyon
+
+İster sanayi ister ticari işletme olun, ihtiyacınıza özel çözümlerle yanınızdayız.
+Siz işinize odaklanın, biz elektriğinizi güvene alalım.
+  </p>
+</section>
+
+<section id="projeler" class="projects">
+  <h2>Projelerimiz</h2>
+  <div class="slider">
+    <div class="slides">
+      <div class="slide active">
+        <img src="proje1.jpeg" alt="Proje 1">
+      </div>
+      <div class="slide">
+        <video src="proje2.mp4" controls muted></video>
+      </div>
+      <div class="slide">
+        <video src="proje3.mp4" controls muted></video>
+      </div>
+      <div class="slide">
+        <img src="proje4.jpeg" alt="Proje 4">
+      </div>
+      <div class="slide">
+        <img src="proje5.jpeg" alt="Proje 5">
+      </div>
+      <div class="slide">
+        <img src="proje6.jpeg" alt="Proje 6">
+      </div>
+      <div class="slide">
+        <img src="proje7.jpeg" alt="Proje 7">
+      </div>
+      <div class="slide">
+        <img src="proje8.jpeg" alt="Proje 8">
+      </div>
+    </div>
+
+    <button class="prev" aria-label="Önceki">&#10094;</button>
+    <button class="next" aria-label="Sonraki">&#10095;</button>
+  </div>
+  <p>Daha fazla proje yakında burada yer alacak...</p>
+</section>
+
+<section id="iletisim">
+  <h2>İletişim</h2>
+  <p>Email: ortaerimuzaffer@gmail.com</p>
+  <p>Telefon: +90 538 084 29 61</p>
+  <p>Adres: Denizli, Türkiye</p>
+</section>
+
+<footer>
+  <p>&copy; 2025 MZ Pano Sistemleri. Tüm hakları saklıdır.</p>
+</footer>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const prevBtn = document.querySelector('.prev');
+  const nextBtn = document.querySelector('.next');
+  let current = 0;
+
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.toggle('active', i === index);
+      if (slide.querySelector('video')) {
+        if (i === index) slide.querySelector('video').play();
+        else slide.querySelector('video').pause();
+      }
+    });
+  }
+
+  function nextSlide() {
+    current = (current + 1) % slides.length;
+    showSlide(current);
+  }
+
+  function prevSlide() {
+    current = (current - 1 + slides.length) % slides.length;
+    showSlide(current);
+  }
+
+  nextBtn.addEventListener('click', () => {
+    nextSlide();
+    resetAutoSlide();
+  });
+
+  prevBtn.addEventListener('click', () => {
+    prevSlide();
+    resetAutoSlide();
+  });
+
+  showSlide(current);
+
+  let slideInterval = setInterval(nextSlide, 6000);
+
+  function resetAutoSlide() {
+    clearInterval(slideInterval);
+    slideInterval = setInterval(nextSlide, 6000);
+  }
+</script>
+
+</body>
+</html>
